@@ -18,7 +18,6 @@ export default function Background(props: any) {
       <div>
         {users.map((user) => (
           <ActiveUser user={user} />
-          // I Will add the swiper here;
         ))}
       </div>
     </div>
