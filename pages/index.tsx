@@ -8,7 +8,7 @@ export default function Home() {
     <main>
       <TopBar />
       <TabBar />
-      // ! FIXME: This swiper should allow to scroll vertically;
+      {/* // ! FIXME: This swiper should allow to scroll vertically; */}
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
