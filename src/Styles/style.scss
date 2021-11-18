@@ -1,4 +1,7 @@
 @import "./main";
+body {
+  background-color: $main-color;
+}
 
 main {
   height: 100vh;
