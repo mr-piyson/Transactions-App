@@ -1,4 +1,6 @@
 import { DarkBackground, InboxIcon, Avatar } from "../Icons/index";
+import ClickEffect from "../Hooks/ClickEffect";
+import { useRef } from "react";
 
 const users = [
   { name: "Ali", phone: "36860504", total: -8.0, date: "2021/12/12" },
@@ -14,20 +16,24 @@ const users = [
 export default function Background(props: any) {
   return (
     <div className="scroll-viewBox">
-      <div>
-        {users.map((user) => (
-          <ActiveUser user={user} />
-        ))}
-      </div>
+      {users.map((user) => (
+        <ActiveUser user={user} />
+      ))}
     </div>
   );
- 
 }
 
 const ActiveUser = ({ user }) => {
+  const div = useRef(null);
   const { name, phone, date, total } = user;
   return (
-    <div className="user active">
+    <div
+      ref={div}
+      className="user"
+      onClick={(e) => {
+        ClickEffect(e, div.current);
+      }}
+    >
       <div className="avatar">
         <Avatar />
       </div>

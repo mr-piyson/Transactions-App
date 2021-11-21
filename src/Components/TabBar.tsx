@@ -1,10 +1,12 @@
-import { useLayoutEffect, useState } from "react";
+import ClickEffect from "../Hooks/ClickEffect";
+import { useLayoutEffect, useRef, useState } from "react";
 import { Inbox2Icon, WalletIcon, HistoryIcon } from "../Icons";
 
 export default function (props: any) {
   const [WinWidth, set_width] = useState(0);
   const [position, set_position] = useState(0);
   const [tabSelected, set_tabSelected] = useState(0);
+  const ele = useRef(null);
 
   let PointerStyle = {
     width: `${WinWidth}px`,
@@ -30,11 +32,12 @@ export default function (props: any) {
   return (
     <div className="tab_bar">
       <button
+        ref={ele}
         onClick={(e) => {
           onClickHandler(0);
         }}
       >
-        <Inbox2Icon className={tabSelected === 0 ? "selected" : ""} />
+        <Inbox2Icon className={tabSelected === 0 ? "selected" : "icon"} />
       </button>
 
       <button
@@ -43,7 +46,7 @@ export default function (props: any) {
           onClickHandler(1);
         }}
       >
-        <HistoryIcon className={tabSelected === 1 ? "selected" : ""} />
+        <HistoryIcon className={tabSelected === 1 ? "selected" : "icon"} />
       </button>
 
       <button
@@ -52,7 +55,7 @@ export default function (props: any) {
           onClickHandler(2);
         }}
       >
-        <WalletIcon className={tabSelected === 2 ? "selected" : ""} />
+        <WalletIcon className={tabSelected === 2 ? "selected" : "icon"} />
       </button>
       <span className="pointer" style={PointerStyle}></span>
     </div>

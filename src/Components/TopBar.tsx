@@ -1,23 +1,49 @@
 import { LogoIcon, OptionIcon, SearchIcon } from "../Icons";
-import React from "react";
+import React, { useState } from "react";
 
 export default function TopBar(props) {
+  const [searchToggle, set_SearchToggle] = useState(true);
+
+  function SearchClickHandler(params: any) {
+    set_SearchToggle(!searchToggle);
+  }
+
+  const SearchTop = () => {
+    return (
+      <div className="logo-container">
+        <input type="search" />
+        <div className="tools">
+          <span>
+            <SearchIcon onClick={SearchClickHandler} />
+          </span>
+        </div>
+      </div>
+    );
+  };
+
+  const NormalTop = () => {
+    return (
+      <>
+        <div className="logo-container">
+          <span>
+            <LogoIcon />
+          </span>
+          <span className="logo-title">mr.piyson</span>
+        </div>
+        <div className="tools">
+          <span>
+            <SearchIcon onClick={SearchClickHandler} />
+          </span>
+          <span>
+            <OptionIcon />
+          </span>
+        </div>
+      </>
+    );
+  };
   return (
     <div className="top-bar">
-      <div className="logo-container">
-        <span>
-          <LogoIcon />
-        </span>
-        <span className="logo-title">mr.piyson</span>
-      </div>
-      <div className="tools">
-        <span>
-          <SearchIcon />
-        </span>
-        <span>
-          <OptionIcon />
-        </span>
-      </div>
+      {searchToggle ? <NormalTop /> : <SearchTop />}
     </div>
   );
 }
