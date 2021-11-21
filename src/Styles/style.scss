@@ -142,7 +142,7 @@ main {
 .scroll-viewBox {
   overflow: scroll;
   width: 100%;
-  height: 85%;
+  height: 100%;
   background-color: $main-color;
   color: $primary-text-color;
   &::-webkit-scrollbar {

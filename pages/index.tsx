@@ -1,31 +1,42 @@
 import { TabBar, TopBar, Background } from "@Components/index";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import { InboxIcon } from "../src/Icons/index";
+import React, { useState } from "react";
 
 export default function Home() {
+  const [page, set_page] = useState(0);
+  function onTabChangeHandler(key) {
+    set_page(key);
+  }
+  function handlePages(params: number) {
+    switch (params) {
+      case 0:
+        return <Background />;
+
+      case 1:
+        return <EmptyPage />;
+
+      case 2:
+        return <EmptyPage />;
+      default:
+        return <Background />;
+    }
+  }
+
   return (
     <main>
       <TopBar />
-      <TabBar />
+      <TabBar onTabChange={onTabChangeHandler} />
       {/* // ! FIXME: This swiper should allow to scroll vertically; */}
-      <Swiper
-        spaceBetween={0}
-        slidesPerView={1}
-        pagination={{ clickable: false }}
-        scrollbar={{ draggable: false }}
-        onSlideChange={(e) => console.log(e.activeIndex)}
-      >
-        <SwiperSlide style={{ overflow: "scroll" }} key={0}>
-          <Background />
-        </SwiperSlide>
-        <SwiperSlide key={1}>
-          <Background />
-        </SwiperSlide>
-        <SwiperSlide key={2}>
-          <Background />
-        </SwiperSlide>
-      </Swiper>
+
+      {handlePages(page)}
     </main>
   );
 }
+const EmptyPage = () => {
+  return (
+    <div className="background">
+      {true ? <InboxIcon /> : null}
+      <span>There is no Deals yet</span>
+    </div>
+  );
+};

@@ -1,4 +1,3 @@
-import { Props } from "react";
 import { DarkBackground, InboxIcon, Avatar } from "../Icons/index";
 
 const users = [
@@ -11,12 +10,6 @@ const users = [
   { name: "Ali", phone: "36860504", total: 8.0, date: "2021/12/12" },
   { name: "Showman", phone: "66860504", total: 0.0, date: "2021/7/9" },
   { name: "Jak", phone: "36890504", total: 90.0, date: "2021/9/5" },
-  { name: "Jak", phone: "36890504", total: 90.0, date: "2021/9/5" },
-  { name: "Jak", phone: "36890504", total: 90.0, date: "2021/9/5" },
-  { name: "Jak", phone: "36890504", total: 90.0, date: "2021/9/5" },
-  { name: "Jak", phone: "36890504", total: 90.0, date: "2021/9/5" },
-  { name: "Jak", phone: "36890504", total: 90.0, date: "2021/9/5" },
-  { name: "Jak", phone: "36890504", total: 90.0, date: "2021/9/5" },
 ];
 export default function Background(props: any) {
   return (
@@ -28,10 +21,7 @@ export default function Background(props: any) {
       </div>
     </div>
   );
-  // <div className="background">
-  //   {true ? <InboxIcon /> : null}
-  //   <span>There is no Deals yet</span>
-  // </div>
+ 
 }
 
 const ActiveUser = ({ user }) => {

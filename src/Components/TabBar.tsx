@@ -24,6 +24,7 @@ export default function (props: any) {
 
   function onClickHandler(key) {
     set_tabSelected(key);
+    props.onTabChange ? props.onTabChange(key) : null;
   }
 
   return (
