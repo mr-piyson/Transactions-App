@@ -1,4 +1,3 @@
-import ClickEffect from "../Hooks/ClickEffect";
 import { useLayoutEffect, useRef, useState } from "react";
 import { Inbox2Icon, WalletIcon, HistoryIcon } from "../Icons";
 

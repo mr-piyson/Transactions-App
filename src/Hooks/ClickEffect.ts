@@ -16,5 +16,4 @@ export default function ClickEffect(
   setTimeout(() => {
     effectDiv.remove();
   }, 700);
-  //   console.log(x, y);
 }

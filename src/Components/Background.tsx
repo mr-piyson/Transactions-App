@@ -16,8 +16,8 @@ const users = [
 export default function Background(props: any) {
   return (
     <div className="scroll-viewBox">
-      {users.map((user) => (
-        <ActiveUser user={user} />
+      {users.map((user, index) => (
+        <ActiveUser key={index} user={user} />
       ))}
     </div>
   );
