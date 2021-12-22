@@ -1,6 +1,7 @@
 import { DarkBackground, InboxIcon, Avatar } from "../Icons/index";
 import ClickEffect from "../Hooks/ClickEffect";
 import { useRef } from "react";
+import img from "../Icons/img_avatar2.jpg"
 
 const users = [
   { name: "Ali", phone: "654651321", total: -8.0, date: "2021/12/12" },
@@ -35,7 +36,7 @@ const ActiveUser = ({ user }) => {
       }}
     >
       <div className="avatar">
-        <Avatar />
+        <img src={img.src} alt="" />
       </div>
       <div className="user-info">
         <div className="top">
